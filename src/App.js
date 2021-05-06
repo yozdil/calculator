@@ -3,7 +3,7 @@ import { Header } from 'semantic-ui-react'
 
 function App() {
   return <div className="App">
-    <Header>Hello</Header>
+    <Header as="h1">Hello</Header>
   </div>;
 }
 
