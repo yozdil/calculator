@@ -13,8 +13,8 @@ const Calculator = ({ state, dispatch }) => {
   return (
     <Container fluid>
       <Segment color="blue" inverted>
-        <Segment id="display" textAlign="right">
-          <Header>{state.value ? state.value : "..."}</Header>
+        <Segment textAlign="right">
+          <Header id="display">{state.value ? state.value : '0'}</Header>
         </Segment>
         <Button.Group widths="4" fluid color="blue" attached="top">
           <Button
