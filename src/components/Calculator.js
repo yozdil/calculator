@@ -1,5 +1,5 @@
 import "../styles/calculator.scss";
-import { Container, Button, Segment, Icon } from "semantic-ui-react";
+import { Container, Button, Segment, Header } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDivide,
@@ -13,7 +13,7 @@ const Calculator = ({ state, dispatch }) => {
   return (
     <Container fluid>
       <Segment id="display" textAlign="right">
-        {state.value}
+        <Header>{state.value ? state.value : "..."}</Header>
       </Segment>
       <Button.Group widths="4" fluid color="blue" attached="top">
         <Button
