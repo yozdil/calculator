@@ -51,7 +51,7 @@ const Reducer = (state, action) => {
       return {
         ...state,
         value:
-          "" && state.value.includes(".") ? state.value : state.value + ".",
+          state.value.includes(".") ? state.value : state.value + ".",
       };
     case "delete":
       return {
