@@ -25,15 +25,20 @@ const calculate = (num1, operator, num2) => {
 const Reducer = (state, action) => {
   switch (action.type) {
     case "number":
-      return { ...state, value: state.value + action.number };
+      return {
+        ...state,
+        num2: state.operator
+          ? calculate(state.num1, state.operator, (state.value + action.number))
+          : "",
+        value: state.value + action.number,
+      };
     case "operator":
       return {
         ...state,
-        num1: state.value ? state.value : "",
-        num2: "",
+        num1: state.num2 ? state.num2 : (state.value || state.num1),
+        // num2: "",
         value: "",
-        operator:
-          state.operator && state.num1 ? state.operator : action.operator,
+        operator: action.operator,
       };
     case "decimal":
       return {
@@ -63,4 +68,4 @@ const Reducer = (state, action) => {
   }
 };
 
-export {Reducer, initialState};
+export { Reducer, initialState };
