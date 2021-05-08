@@ -28,17 +28,24 @@ const Reducer = (state, action) => {
       return {
         ...state,
         num2: state.operator
-          ? calculate(state.num1, state.operator, (state.value + action.number))
+          ? calculate(state.num1, state.operator, state.value + action.number)
           : "",
-        value: state.value + action.number,
+        value: state.value + (state.value=== "0" ? '' : action.number),
       };
     case "operator":
       return {
         ...state,
-        num1: state.num2 ? state.num2 : (state.value || state.num1),
+        num1: state.num2
+          ? action.operator === "minus"
+            ? -1 * state.num2
+            : state.num2
+          : action.operator === "minus"
+          ? -1 * (state.value || state.num1)
+          : state.value || state.num1,
         // num2: "",
         value: "",
-        operator: action.operator,
+        operator:
+          action.operator === "minus" ? state.operator : action.operator,
       };
     case "decimal":
       return {
