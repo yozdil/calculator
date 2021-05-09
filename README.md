@@ -1,9 +1,11 @@
-<h1 align="center">Welcome to Calculator 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-</p>
+<h1 align="center">Calculator 🧮</h1>
 
-> A simple React calculator
+## About
+
+![alt text](public/app.gif)
+
+[Calculator](https://csb-wfx43.netlify.app/) was done for Front End Development Libraries Certification at [freeCodeCamp](https://www.freecodecamp.org). At it's core it uses React and Semantic UI for simple visuals and Animate.style for initial css animations!
+
 
 ### ✨ [Demo](www.google.com)
 
@@ -32,10 +34,3 @@ npm run test
 * Website: yamacozdil.com
 * Github: [@yozdil](https://github.com/yozdil)
 * LinkedIn: [@yamac-ozdil](https://linkedin.com/in/yamac-ozdil)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
