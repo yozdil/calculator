@@ -1,13 +1,13 @@
 const initialState = {
-  value: "",
+  num: "",
   operator: "",
-  num1: 0,
-  num2: "",
+  result: "",
+  negative: " ",
 };
 
-const calculate = (num1, operator, num2) => {
-  const numOne = Number(num1);
-  const numTwo = Number(num2);
+const calculate = (num2, operator, result) => {
+  const numOne = Number(num2);
+  const numTwo = Number(result);
   switch (operator) {
     case "plus":
       return numOne + numTwo;
@@ -22,53 +22,68 @@ const calculate = (num1, operator, num2) => {
   }
 };
 
+const addOperator = (operator) => {
+  switch (operator) {
+    case "plus":
+      return " + ";
+    case "minus":
+      return " - ";
+    case "multiply":
+      return " * ";
+    case "divide":
+      return " / ";
+    default:
+      return "";
+  }
+};
+
 const Reducer = (state, action) => {
   switch (action.type) {
     case "number":
       return {
         ...state,
-        num2: state.operator
-          ? calculate(state.num1, state.operator, state.value + action.number)
-          : "",
-        value: state.value + (state.value=== "0" ? '' : action.number),
+        negative: " ",
+        result: state.num
+          ? state.result
+          : state.result +
+            (state.operator ? addOperator(state.operator) : "") +
+            state.negative,
+        num: state.num + (state.num === "0" ? "" : action.number),
+        operator: ""
       };
     case "operator":
       return {
         ...state,
-        num1: state.num2
-          ? action.operator === "minus"
-            ? -1 * state.num2
-            : state.num2
-          : action.operator === "minus"
-          ? -1 * (state.value || state.num1)
-          : state.value || state.num1,
-        // num2: "",
-        value: "",
+        num: "",
+        result: state.result + state.num,
         operator:
           action.operator === "minus" ? state.operator : action.operator,
+        negative:
+          action.operator === "minus"
+            ? state.negative.includes("-")
+              ? " "
+              : addOperator(action.operator)
+            : " ",
       };
+
     case "decimal":
       return {
         ...state,
-        value:
-          state.value.includes(".") ? state.value : state.value + ".",
+        num: state.num.includes(".") ? state.num : state.num + ".",
       };
     case "delete":
       return {
         ...state,
-        value: state.value
-          ? state.value.split("").slice(0, -1).join("")
-          : state.value,
+        num: state.num ? state.num.split("").slice(0, -1).join("") : state.num,
       };
     case "clear":
       return initialState;
     case "equals":
       return {
         ...state,
-        num1: state.value ? state.value : "",
-        num2: state.value ? state.value : "",
-        value: calculate(state.num1, state.operator, state.value),
+        num: eval(state.result + " " + state.num),
         operator: "",
+        result: "",
       };
     default:
       throw new Error();

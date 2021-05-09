@@ -14,7 +14,7 @@ const Calculator = ({ state, dispatch }) => {
     <Container fluid>
       <Segment color="blue" inverted>
         <Segment textAlign="right">
-          <Header id="display">{state.value ? state.value : '0'}</Header>
+          <Header id="display">{state.num ? state.num : '0'}</Header>
         </Segment>
         <Button.Group widths="4" fluid color="blue" attached="top">
           <Button
@@ -130,7 +130,7 @@ const Calculator = ({ state, dispatch }) => {
             </Button>
             <Button
               id="minus"
-              onClick={() => dispatch({ type: "operator", operator: "minus" })}
+              onClick={() => dispatch({ type: "operator", operator: "minus"})}
               size="massive"
               padded
             >
