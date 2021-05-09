@@ -4,10 +4,10 @@
 
 ![alt text](public/app.gif)
 
-[Calculator](https://csb-wfx43.netlify.app/) was done for Front End Development Libraries Certification at [freeCodeCamp](https://www.freecodecamp.org). At it's core it uses React and Semantic UI for simple visuals and Animate.style for initial css animations!
+[Calculator](https://csb-e7s6g.netlify.app/) was done for Front End Development Libraries Certification at [freeCodeCamp](https://www.freecodecamp.org). At it's core it uses React and Semantic UI for simple visuals and Animate.style for initial css animations!
 
 
-### ✨ [Demo](www.google.com)
+### ✨ [Demo](https://csb-e7s6g.netlify.app/)
 
 ## Install
 
