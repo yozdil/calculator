@@ -1,4 +1,3 @@
-import "../styles/calculator.scss";
 import { Container, Button, Segment, Header } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
