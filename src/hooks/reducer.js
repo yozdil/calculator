@@ -1,25 +1,8 @@
 const initialState = {
+  negative: " ",
   num: "",
   operator: "",
   result: "",
-  negative: " ",
-};
-
-const calculate = (num2, operator, result) => {
-  const numOne = Number(num2);
-  const numTwo = Number(result);
-  switch (operator) {
-    case "plus":
-      return numOne + numTwo;
-    case "minus":
-      return numOne - numTwo;
-    case "multiply":
-      return numOne * numTwo;
-    case "divide":
-      return numOne / numTwo;
-    default:
-      return 0;
-  }
 };
 
 const addOperator = (operator) => {
@@ -43,27 +26,27 @@ const Reducer = (state, action) => {
       return {
         ...state,
         negative: " ",
+        num: state.num + (state.num === "0" ? "" : action.number),
+        operator: "",
         result: state.num
           ? state.result
           : state.result +
             (state.operator ? addOperator(state.operator) : "") +
             state.negative,
-        num: state.num + (state.num === "0" ? "" : action.number),
-        operator: ""
       };
     case "operator":
       return {
         ...state,
-        num: "",
-        result: state.result + state.num,
-        operator:
-          action.operator === "minus" ? state.operator : action.operator,
         negative:
           action.operator === "minus"
             ? state.negative.includes("-")
               ? " "
               : addOperator(action.operator)
             : " ",
+        num: "",
+        operator:
+          action.operator === "minus" ? state.operator : action.operator,
+        result: state.result + state.num,
       };
 
     case "decimal":
@@ -81,6 +64,7 @@ const Reducer = (state, action) => {
     case "equals":
       return {
         ...state,
+        negative: " ",
         num: eval(state.result + " " + state.num),
         operator: "",
         result: "",
