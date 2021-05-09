@@ -8,16 +8,17 @@ function App() {
 
   return (
     <div className="App">
-      <Header textAlign="center" as="h1">
-        Calculator
-      </Header>
-      <Calculator state={state} dispatch={dispatch} id="calculator" />
-      <a href="https://yamacozdil.com/">
-        <Divider hidden></Divider>
-        <Header floated="right" color="blue" as="h4">
-          by Yamac Ozdil
-        </Header>
-      </a>
+      <div className="animate__animated animate__backInDown">
+        <Calculator state={state} dispatch={dispatch} id="calculator" />
+      </div>
+      <div className="animate__animated animate__backInRight">
+        <a href="https://yamacozdil.com/">
+          <Divider hidden></Divider>
+          <Header floated="right" color="blue" as="h4">
+            by Yamac Ozdil
+          </Header>
+        </a>
+      </div>
     </div>
   );
 }
